@@ -1,0 +1,12 @@
+require.config({  
+	paths:{
+		'jquery':'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min',
+		'lazyload':'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min',
+		'cookie':'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie',
+	},
+	shim:{ 
+        'slide':{ 
+            deps:['jquery']
+        } 
+    }
+})

@@ -1,0 +1,1 @@
+require.config({paths:{jquery:"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min",lazyload:"http://10.31.155.114/1808-5/shenqiuyun/cnrmall/src/script/thirdplugins/jquery.lazyload",cookie:"http://10.31.155.114/1808-5/shenqiuyun/cnrmall/src/script/thirdplugins/jquery.cookie"},shim:{slide:{deps:["jquery"]}}});

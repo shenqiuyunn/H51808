@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" /> 
+		<title>欢迎登录-央广购物官方网站</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" /> 
+		<style>
+			body{
+				background: #fafafa;
+			}
+		</style> 
+	</head>
+
+	<body>
+	
+		<!--头部 start-->
+		<div class="login-header">
+			<div class="wrapper1000 clearfix">
+				<a href="index.html" class="site-logo fl">
+					<img src="img/logo.png" alt="央广购物" title="央广购物">
+				</a>
+				<div class="regist-now fr">
+					<img src="https://static.cnrmall.com/public/img/avatar.gif" alt="" title="" />
+					<p>您好，欢迎来到央广购物</br>已注册的会员请登录，或立即<a href="registor.html"> 注册新会员</a></p>
+				</div>
+			</div>
+		</div>
+		<!--头部 end-->
+		
+		<!--主题内容 start-->
+		<div id="main">
+			<div class="login-layout wrapper1000 clearfix">
+				<div class="pic-left fl">
+					<img src="https://static.cnrmall.com/public/img/login_img.jpg" alt="" title="" />
+				</div>
+				<div class="login-box-right fr">
+					<span class="arrow"></span>
+					<div class="login-tap clearfix">
+						<span class="active">用户登录<i></i></span>
+						<span>手机动态码登录<i></i></span>
+					</div> 
+					<!--账号登录-->
+					<div class="form-box account-login-from" style="display: block;"> 
+						<form action="../php/login.php" method="post" id="loginForm">
+							<p class="top-error error-pass"><i class="fa fa-exclamation-circle"></i>您输入的账号与密码不匹配，请重新输入!<a href="javascript:;">忘记密码</a>或<a href="javascript:;">账号</a>？</p>
+							<p class="top-error error-user"><i class="fa fa-exclamation-circle"></i>该账号不存在，<a href="javascript:;">忘记账号</a>或<a href="registor.html">注册新账号</a>？</p>
+							<div class="input-groups">
+								<label>账　号：</label>
+								<input type="text" name="username" id="username" class="input-line" placeholder="会员名/邮箱"/>
+								<label id="username-error" class="error" for="username"><i class="fa fa-exclamation-circle"></i>账号不能为空</label>
+							</div>
+							<div class="input-groups">
+								<label>密　码：</label>
+								<input type="password" name="password" id="password" class="input-line" placeholder="输入账户密码" />
+								<label id="password-error" class="error" for="password"><i class="fa fa-exclamation-circle"></i>密码不能为空</label>
+							</div>
+							<div class="input-groups" style="display: none;">
+								<label>验证码：</label>
+								<input type="text" name="verificationcode" class="input-line w100" placeholder="输入验证码" />
+								<span class="img-code fr">
+									<img src="https://www.cnrmall.com/captcha/getcaptcha" alt="" title="" />
+									<a href="javascript:;">看不清，换一张</a>
+								</span>
+							</div>
+							<div class="login-btn">
+								<p>
+									<label><input type="checkbox" class="self-login"/>七天自动登录</label>
+									<a href="javascript:;">忘记密码</a>
+								</p>
+								<button type="button" name="submit" class="btn btn-sub">登录</button>
+								<div class="third-party-login">
+									<h4>使用合作网站账号登录：</h4>
+									<a href="javascript:;"><i class="wx"></i>微信</a>
+								</div> 
+							</div>
+						</form>
+					</div>
+					<!--手机验证码登录-->
+					<div class="form-box phone-login-from"> 
+						<form action="" method="post">
+							<div class="input-groups">
+								<label>手机号：</label>
+								<input type="text" name="phone" class="input-line" placeholder="可填写已注册的手机号接收短信" />
+							</div> 
+							<div class="input-groups">
+								<label>验证码：</label>
+								<input type="text" name="verificationcode" class="input-line w100" placeholder="输入验证码" />
+								<span class="img-code fr">
+									<img src="https://www.cnrmall.com/captcha/getcaptcha" alt="" title="" />
+									<a href="javascript:;">看不清，换一张</a>
+								</span>
+							</div>
+							<p class="p-prompt">正确输入上方验证码后，点击<a><i class="fa fa-mobile"></i>发送短信动态码</a>，查收短信将系统发送的“6位短信动态码”输入到下方验证后登录。</p>
+							<div class="input-groups">
+								<label>动态码：</label>
+								<input type="text" name="phone" class="input-line" placeholder="输入6位手机动态码" />
+							</div>
+							<div class="login-btn">
+								
+								<button type="submit" name="submit" class="btn btn-sub">登录</button>
+								<div class="third-party-login">
+									<h4>使用合作网站账号登录：</h4>
+									<a href="javascript:;"><i class="wx"></i>微信</a>
+								</div> 
+							</div>
+						</form>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<!--主题内容 end-->
+		
+		<!--footer-->
+		<div id="footer" class="no-f-top"></div> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+		<script> 
+			$(function(){  
+				$('.btn-sub').on('click',function(){ 
+					if($('#username').val()==''){  
+						$('#username').addClass('error');
+						$('#username').next('label').show();
+					}
+					if($('#password').val()==''){
+						$('#password').addClass('error');
+						$('#password').next('label').show();
+					}
+					var $user = $('#username').val();
+					var $pass = $('#password').val();   
+					if($user!=''&&$pass!=''){
+						$.ajax({
+				 			type:'post',
+				 			url:'../php/login.php',
+				 			data:{
+				 				username:$user,
+				 				password:$pass
+				 			},
+				 			success:function(data){  
+				 				if(!data){
+				 					$('.error-pass').show();
+				 				}else{    
+				 					location.href='index.html';
+				 					if($('.self-login').prop('checked')){ 
+				 						$.cookie('username', $user,{ expires: 7 }); 
+				 						$.cookie('password', $pass,{ expires: 7 }); 
+				 					}else{
+				 						$.cookie('username', $user);
+				 						$.cookie('password', $pass); 
+				 					}
+				 				}
+				 			}
+				 		});
+					}
+					if($('#password').val()!='' || $('#password').val()!=''){
+						$('.input-line').removeClass('error');
+						$('.input-line').next('label').hide();
+					} 
+				});
+				$(".input-line").on('blur',function(){
+					$(this).removeClass('error');
+					$(this).next('label').hide();
+				})
+				if($.cookie('username')){
+					$('#username').val($.cookie('username'));
+					$('#password').val($.cookie('password')); 
+				}
+				//放在下面，否则cookie报错
+				if($('#footer').hasClass('no-f-top')){
+					$('#footer').load('footer.html .footer-bottom');
+				}else{
+					$('#footer').load('footer.html');
+				}
+			}); 
+		</script>
+	</body> 
+</html>

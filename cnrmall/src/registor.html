@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" /> 
+		<title>欢迎登录-央广购物官方网站</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="css/font-awesome.css" />
+		<link rel="stylesheet" type="text/css" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" /> 
+		<style>
+			body{
+				background: #fafafa;
+			} 
+		</style> 
+	</head>
+
+	<body>
+	
+		<!--头部 start-->
+		<div class="login-header">
+			<div class="wrapper1000 clearfix">
+				<a href="index.html" class="site-logo fl">
+					<img src="img/logo.png" alt="央广购物" title="央广购物">
+				</a>
+				<div class="regist-now fr"> 
+					<p><br>我已经注册，现在就<a href="login.html"> 登录</a></p>
+				</div>
+			</div>
+		</div>
+		<!--头部 end-->
+		
+		<!--主题内容 start-->
+		<div id="main" class="registor-bj">
+			<div class="login-layout wrapper1000 registor-box"> 
+				<div class="background-fff clearfix">  
+					<div class="registor-box-left fl">  
+						<h2>账号注册</h2>
+						<div class="form-box account-login-from"> 
+							<form action="../php/registor.php" method="post" id="reForm">
+								<div class="input-groups">
+									<label>账　号：</label>
+									<input type="text" name="username" id="username" class="input-line" placeholder="会员名/邮箱" />
+									<label id="username-error" class="error" for="username"><i class="fa fa-exclamation-circle"></i>(必填，填写用户名)</label>
+								</div>
+								<div class="input-groups">
+									<label>密　码：</label>
+									<input type="password" name="password" id="password" class="input-line" placeholder="输入账户密码" />
+									<label id="password-error" class="error" for="password"><i class="fa fa-exclamation-circle"></i>(必填，不得少于6位)</label>
+								</div>
+								<div class="input-groups">
+									<label>邮　箱：</label>
+									<input type="text" name="email" id="email" class="input-line" placeholder="输入邮箱" /> 
+									<label id="email-error" class="error" for="email"><i class="fa fa-exclamation-circle"></i>(必填，填写邮箱)</label>
+								</div>
+								<div class="login-btn">
+									<p>
+										<label><input type="checkbox" checked/>阅读并同意</label> 
+										<a href="javascript:;">《服务协议》</a>
+									</p>
+									<!--<button type="submit" name="submit" class="btn btn-sub">注 册</button> -->
+									<input type="submit" value="注册" name="submit" class="btn btn-sub"/>
+								</div>
+							</form>
+						</div> 
+					</div>
+					<div class="registor-box-right fr">
+						<h3>注册之后您可以</h3>
+						<ul> 
+							<li>
+								<i class="icon_1"></i> 购买商品支付订单
+							</li>
+							<li>
+								<i class="icon_2"></i> 收藏商品收藏店铺
+							</li>
+							<li>
+								<i class="icon_3"></i> 安全交易诚信无忧
+							</li>
+							<li>
+								<i class="icon_4"></i> 会员等级享受特权
+							</li>
+							<li>
+								<i class="icon_5"></i> 交易评价站外分享
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div> 
+		</div>
+		<!--主题内容 end-->
+		
+		<!--footer-->
+		<div id="footer" class="no-f-top"></div> 
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script> 
+		<script type="text/javascript"> 
+			$(function(){
+				if($('#footer').hasClass('no-f-top')){
+					$('#footer').load('footer.html .footer-bottom');
+				}else{
+					$('#footer').load('footer.html');
+				}
+				$('#reForm').validate({
+					rules:{
+						username:{
+							required:true,
+							minlength:2,
+							maxlength:20,
+							remote:{
+								type:'post',
+								url:'../php/registor.php'
+							}
+						},
+						password:{
+							required:true,
+							minlength:6
+						},
+						email:{
+							required:true,
+							email:true
+						}
+					},
+					messages:{
+						username:{
+							required:'<i class="fa fa-exclamation-circle"></i><em class="err">用户名不能为空</em>',
+							minlength:'<i class="fa fa-exclamation-circle"></i>用户名不能小于2',
+							maxlength:'<i class="fa fa-exclamation-circle"></i>用户名不能大于10',
+							remote:'<i class="fa fa-exclamation-circle"></i><em class="err">用户名已存在</em>'
+						},
+						password:{
+							required:'<i class="fa fa-exclamation-circle"></i>密码不能为空',
+							minlength:'<i class="fa fa-exclamation-circle"></i>密码不能小于6位'
+						},
+						email:{
+							required:'<i class="fa fa-exclamation-circle"></i>邮箱不能为空',
+							email:'<i class="fa fa-exclamation-circle"></i>你输入的格式有误'
+						}
+					} 	
+				});
+			}); 
+			$.validator.setDefaults({ 
+			    success: function(label){
+			        label.html('<i class="success"></i>').css('background','#fff').addClass('valid'); 
+			    }
+			});  
+		</script>
+	</body> 
+</html>

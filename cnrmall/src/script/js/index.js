@@ -1,0 +1,1 @@
+require(['common','banner','data','details','cart']);

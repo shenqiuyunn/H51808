@@ -1,0 +1,110 @@
+@charset "utf-8";
+$wrapper_width:1210px;
+$red_color:#FF5B57;
+$small_size:12px;
+$st_size:'宋体';
+$orange:#F15C18;
+$wrapper1000:1000px;
+//浮动
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+//透明度
+@mixin opacityvalue($opacity:0.5) {
+    opacity: $opacity;
+    filter: alpha(opacity=$opacity*100);
+}
+//溢出省略
+@mixin ellipsiss() {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+//按钮
+@mixin btn() {
+    background-color: #F15C18;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    &:hover {
+        background-color: #e05616;
+    }
+}
+//hover字体颜色
+@mixin hovercolor() {
+    //color: #C81623 !important;
+    color: #FF6D02 !important;
+}
+//元素absolute
+@mixin positionel() {
+    position: absolute; 
+    left: 0;
+    width: 100%;
+}
+//轮播图焦点
+@mixin hd_i() {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 3px;
+    background: #3e3e3e;
+    cursor: pointer;
+    &.active{
+      background-color: #f15c18;
+    }
+}
+//轮播图按钮
+@mixin btn_span() {
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+    width: 28px;
+    height: 62px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    font-family: simsun;
+    font-size: 22px;
+    line-height: 62px;
+    color: #FFF;
+    cursor: pointer;
+    &:hover{
+       background: rgba(0, 0, 0, 0.4); 
+    }
+}
+@mixin bgandbor() {
+    background: #fff;
+    border: solid 1px #ddd;
+}
+@mixin bannerwidth(){
+    width: 785px; 
+    margin-left: 172px;
+}
+//放大镜
+@mixin scale_width(){
+    width: 360px;
+    height: 360px; 
+    position: relative;
+}
+@mixin buy_number(){
+    position: relative;  
+    float: left;
+    text-align: center;
+    border: solid 1px #E1E1E1;
+    z-index: 1;
+}
+@mixin crisis(){
+    background-color: #FAFAFA;
+    border-color: #E1E1E1;
+    cursor: not-allowed;
+}
+@mixin cart_amount(){
+    background: #fff0e7;
+    color: #efbba9;
+    border-color: #ffe1d3; 
+}
